@@ -1,0 +1,74 @@
+//*********************** solution 1 with procedure
+PROCEDURE dot_product(var ps: INTEGER, v1,v2 : ARRAY OF INTEGER)
+VAR
+    i: INTEGER;
+BEGIN
+
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        ps := ps + v1[i]*v2[i]
+    END_FOR
+END
+
+ALGORITHM determine_orthogonality
+VAR
+    v1,v2 : ARRAY OF INTEGER;
+    ps : INTEGER :=0;
+
+
+BEGIN
+    REPEAT
+        read(v1);
+        read(v2);
+    UNTIL (v1.length = v2.length)
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        
+     ps:=dot_product[ps,v1[i],v2[i]];
+     END_FOR
+    IF (ps=0) THEN
+        whrite("the vectors are orthogonal");
+    ELSE
+        whrite("the vectors are not orthogonal");
+    END_IF
+   
+
+END
+
+//*********************** solution 1 with function
+
+
+FUNCTION dot_product(v1,v2 : ARRAY OF INTEGER) : INTEGER
+VAR
+    i,ps: INTEGER;
+BEGIN
+    ps:=0;
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        ps := ps + v1[i]*v2[i]
+    END_FOR
+    RETURN ps ;
+END
+
+
+ALGORITHM determine_orthogonality
+VAR
+    v1,v2 : ARRAY OF INTEGER;
+    ps : INTEGER :=0;
+
+
+BEGIN
+    REPEAT
+        read(v1);
+        read(v2);
+    UNTIL (v1.length = v2.length)
+
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+    ps:=dot_product[ps,v1[i],v2[i]];
+    END_FOR
+    
+    IF (ps=0) THEN
+        whrite("the vectors are orthogonal");
+    ELSE
+        whrite("the vectors are not orthogonal");
+    END_IF
+   
+
+END
